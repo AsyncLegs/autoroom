@@ -1,0 +1,315 @@
+
+@media (max-width: 1199px) {
+  .contacts-info-container .map-block{
+    height: 616px;
+    padding: 60px;
+  }
+  .contacts-info-container .map-block #map {
+    width: 496px;
+    height: 496px;
+  }
+}
+
+
+@media (max-width: 991px) {
+
+  .services-signUp-block .signUp-form {
+    margin-top: 15px;
+  }
+  .services-signUp-block .signUp-form .field {
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+  }
+  .services-signUp-block .signUp-form .btn-block {
+    margin-top: 15px;
+  }
+  .whywe {
+    z-index: 3;
+    color: white;
+    background: url('/images/why_we_480.png') no-repeat center;
+    height: 966px;
+    position: relative;
+  }
+  .whywe .whywe-title-container .text{
+    font-size: 36px;
+  }
+  .whywe .whywe-title-container {
+    align-items: center;
+    flex-direction: column;
+  }
+  .whywe .whywe-title-container .text {
+    align-self: center;
+  }
+
+  .avtoshop-container .order .order-form-spares .order-fields.textarea-block {
+    order: 4!important;
+    height: 142px;
+  }
+  .avtoshop-container .order .order-form-spares .btn-block {
+    order: 5;
+    text-align: center;
+  }
+
+  .contacts {
+    background: url('/images/contacts_480.png') no-repeat center;
+    height: 1376px;
+  }
+
+  .contacts-owner-container .owner-info .text{font-size: 14px;}
+  .contacts-title-container{
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  .contacts-owner-container .owner-info img{
+    //text-align: center;
+    width: 132px;
+    height: 132px;
+  }
+  .contacts-info-container .map-block {
+    height: 460px;
+    width: 460px;
+    padding: 45px;
+    margin: 0 auto;
+  }
+  .contacts-info-container .map-block #map {
+    width: 370px;
+    height: 370px;
+  }
+  .contacts-info-container .form-and-address {
+    height: 450px;
+
+  }
+}
+@media (max-width: 767px) {
+  .top-line {
+    display: none;
+  }
+  .menu{
+    .navigation-block {
+      &.feedback {
+        width: 415px
+      }
+      &.diagnostics {
+        width: 415px
+      }
+      &.spares {
+        width: 415px
+      }
+      &.enter {
+        width: 415px
+      }
+      &.registration {
+        width: 415px
+      }
+    }
+  }
+
+  .top-info-block {
+    margin-bottom: 40px;
+  }
+  .top-info-block.right .title {
+    margin-bottom: 25px;
+    margin-top: 50px;
+  }
+  .top-info-block.left .title {
+    font-size: 48px;
+    line-height: 40px;
+  }
+  .top-info-block .title {
+    font-size: 31px;
+    line-height: 31px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+  }
+  .top-info-block .description {
+    font-size: 20px;
+    line-height: 28px;
+    padding: 0 15px;
+  }
+  .services{
+    margin-bottom: 50px;
+  }
+  .services-container .img-block .description{
+    font-size: 14px;
+  }
+  .whywe {
+    height: 1037px;
+  }
+  .whywe .whywe-title-container {
+    transform: translate(0,-15%);
+    height: initial;
+    margin-bottom: 0;
+  }
+  .whywe .whywe-title-container .text {
+    width:100%;
+  }
+  .whywe .whywe-container-info p {
+    font-size: 13px;
+  }
+  .avtoshop-container .banners-block .banner{
+    margin-bottom: 20px;
+  }
+  .yellow-bottom::before {
+    margin-top: -1px;
+  }
+  .contacts-owner-container .owner-info .text {
+    font-size: 12px;
+  }
+  .contacts-info-container .map-block {
+    height: 440px;
+    width: 440px;
+    padding: 45px;
+    margin: 0 auto;
+  }
+  .contacts-info-container .map-block #map {
+    width: 350px;
+    height: 350px;
+  }
+  .menu{
+    .mob_menu{
+      background: url(/images/mob_menu.png);
+      width: 50px;
+      height: 30px;
+      display: block;
+      position: absolute;
+      left: -68px;
+      top: 20px;
+    }
+    .navigation-block{
+      display: none;
+    }
+    .navigation-mobile{
+      display: block;
+      .hide{
+        display: none;
+      }
+      .navigation-content-mob{
+        top: 0;
+        right: -415px;
+        width: 415px;
+        display: flex;
+        position: absolute;
+        height: 100%;
+        opacity: 1;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 7px;
+        transition: 0.9s ease-in-out;
+        &.open{
+          right: 0;
+        }
+        .title{
+          font-size: 26px;
+          letter-spacing: 0.5px;
+          line-height: 26px;
+        }
+        .navigation-form{
+          ::-webkit-input-placeholder {text-align: center;color: #c3c1c1}
+          ::-moz-placeholder          {text-align: center;color: #c3c1c1}
+          :-moz-placeholder           {text-align: center;color: #c3c1c1}
+          :-ms-input-placeholder      {text-align: center;color: #c3c1c1}
+
+          .field{
+            height: 38px;
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
+            outline: none;
+            &:focus{
+              box-shadow: 0px 0px 5px 1px black;
+              border: none;
+            }
+          }
+          .btn-block{
+            button{
+              width: 100%;
+              background: #cc1319;
+              color: white;
+              font-size: 14px;
+              line-height: 14px;
+              padding: 9px 0;
+              border: none;
+            }
+          }
+        }
+      }
+
+
+
+
+
+      .mob-navigation{
+        background: white;
+        width: 0;
+        height: 100%;
+        transition: 0.9s ease-in-out;
+        &.open{
+          width: 415px;
+        }
+        .closeBtn_mob {
+          display: block;
+          width: 55px;
+          height: 55px;
+          z-index: 250;
+          margin-left: 20px;
+          cursor: pointer;
+          position: relative;
+        }
+        .closeBtn_mob:before, .closeBtn_mob:after {
+          position: absolute;
+          left: 25px;
+          content: ' ';
+          height: 55px;
+          width: 2px;
+          background-color: #cc1319;
+        }
+        .closeBtn_mob:before {
+          transform: rotate(45deg);
+        }
+        .closeBtn_mob:after {
+          transform: rotate(-45deg);
+        }
+        ul{
+          padding:0;
+          margin: 0;
+          .nav-mob{
+            position: relative;
+            &:hover{
+              &:before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: #bfbfbf;
+                width: 10px;
+                height: 100%;;
+              }
+            }
+
+            list-style: none;
+            //padding: 20px;
+            color: white;
+            a{
+              color: black;
+              text-decoration: none;
+              width: 100%;
+              display: block;
+              height: 100%;
+              padding: 20px;
+            }
+            &:hover{
+              background: #cc1319;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

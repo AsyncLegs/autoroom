@@ -1,0 +1,84 @@
+{% extends '::base.html.twig' %}
+{% block content %}
+<section class="services" id="services">
+    <div class="container">
+        <p class="title">Услуги <span>СТО</span></p>
+        <!--            <div class="yellow-rotate-label">-->
+        <!--                <p>диагностика бесплатно</p>-->
+        <!--            </div>-->
+        <div class="row services-container">
+            {% for service in services %}
+                <div class='col-xs-4 col-md-2 img-block'>
+                    <img src="{{ asset(service.img) }}">
+                    <p class='description'>{{ service.description |raw }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row services-signUp-block" id="diagnostics">
+            <p class="text-big">записаться на обслуживание</p>
+            <p class="text-small">или <!--<span class="text-bold-red">бесплатную</span>--> диагностику</p>
+            <form class="signUp-form col-xs-12" id="maintenance-form-bottom"
+                  name="maintenance-form-bottom"
+                  action=" {{ path('maintenanceRequest') }}" method="POST">
+                {% include '@App/forms/maintenance.request.form.bottom.html.twig' with {'form': maintenanceRequestFormBottom} %}
+                <div class="col-xs-12 btn-block">
+                    <button type="button" id="maintenance-form-bottom-submit">ОТПРАВИТЬ</button>
+                </div>
+                {{ form_rest(maintenanceRequestFormBottom) }}
+            </form>
+        </div>
+    </div>
+</section>
+<section class="whywe" id="whywe">
+    <div class="container">
+        <div class="row">
+            <div class="whywe-title-container">
+                <img src="{{ asset('/images/bmw.png') }}" class="bmw">
+                <div class="text">ПОЧЕМУ <span>МЫ</span></div>
+            </div>
+            <div class="whywe-container-info">
+                {% for why in whywe %}
+                    <div class='col-xs-6 col-md-4 img-block'>
+                        <img src='{{ asset(why.img) }}' class='img-border'>
+                        <p>{{ why.text|raw }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<section class="avtoshop" id="avtoshop">
+    <div class="yellow-top"></div>
+    <div class="container avtoshop-container">
+        <div class="row banners-block">
+            <div class="title col-sm-12">АВТО<span>МАГАЗИН</span></div>
+            <div class="col-sm-6">
+                <div class="banner banner_1">
+                    <p>на<br/> складе<br/> или под<br/> заказ</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="banner banner_2">
+                    <p> любые<br/> детали<br/> на ваше<br/>авто </p>
+                </div>
+            </div>
+        </div>
+        <div class="row order">
+            <p class="title">заказать подбор запчастей</p>
+            <form class="order-form-spares" id="vehicle-parts-form-bottom"
+                  name="vehicle-parts-form-bottom"
+                  action=" {{ path('vehiclesRequest') }}" method="POST">
+
+                {% include '@App/forms/vehicle.parts.request.form.bottom.html.twig' with {'form': vehiclePartsRequestFormBottom} %}
+                <div class="col-xs-12 btn-block">
+                    <button type="button">ОТПРАВИТЬ</button>
+                </div>
+                {{ form_rest(vehiclePartsRequestFormBottom) }}
+
+            </form>
+        </div>
+    </div>
+    <div class="yellow-bottom"></div>
+</section>
+{% endblock %}

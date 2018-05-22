@@ -1,0 +1,10 @@
+Имя: {{ notification.customerName }} <br>
+Телефон: {{ notification.customerPhone|phone_number_format('NATIONAL') }} <br>
+Электронная почта: {{ notification.customerEmail }} <br>
+Винкод: {{ notification.vinCode }} <br>
+Марка авто: {{ notification.carBrand }} <br>
+Модель авто: {{ notification.carModel }} <br>
+Год выпуска авто: {{ notification.carReleaseYear }} <br>
+Перечень запчастей: {{ notification.parts }} <br>
+Дата время заполнения заявки: {{ notification.createdAt|date('Y-m-d H:i:s') }} <br>
+

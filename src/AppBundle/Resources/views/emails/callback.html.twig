@@ -1,0 +1,3 @@
+Имя: {{ notification.customerName }} <br>
+Телефон: {{ notification.customerPhone|phone_number_format('NATIONAL') }} <br>
+Дата время заполнения заявки: {{ notification.createdAt |date('Y-m-d H:i:s') }} <br>

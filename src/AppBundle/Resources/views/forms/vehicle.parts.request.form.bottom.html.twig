@@ -1,0 +1,32 @@
+<div class="col-xs-12 col-md-4 order-fields">
+    {{ form_widget(form.customerName,  {'id': 'vehicle_parts_form_name_'~random(100),'attr': {'placeholder':'имя', 'title':null, 'class':'field','data-validator-limit':15}}) }}
+    <span class="error-span"></span>
+</div>
+<div class="col-xs-12 col-md-4 order-fields">
+    {{ form_widget(form.customerPhone,  {'id': 'vehicle_parts_form_name_'~random(100),'attr': {'placeholder':'+380 (__) ___-__-__', 'title':null, 'class':'field'}}) }}
+    <span class="error-span"></span>
+</div>
+<div class="col-xs-12 col-md-4 order-fields">
+    {{ form_widget(form.customerEmail,  {'id': 'vehicle_parts_form_name_'~random(100),'attr': {'placeholder':'ел.почта', 'title':null, 'class':'field'}}) }}
+    <span class="error-span"></span>
+</div>
+<div class="col-xs-12 col-md-4 order-fields">
+    {{ form_widget(form.carBrand,  {'id': 'vehicle_parts_form_name_'~random(100),'attr': {'placeholder':'марка авто', 'title':null, 'class':'field brands-selector'}}) }}
+    <span class="error-span"></span>
+</div>
+<div class="col-xs-12 col-md-4 order-fields">
+    {{ form_widget(form.vinCode,  {'id': 'vehicle_parts_form_name_'~random(100),'attr': {'placeholder':'винкод', 'title':null, 'class':'field','data-validator':'latinAndNumberOnly','data-validator-limit':17}}) }}
+    <span class="error-span"></span>
+</div>
+<div class="col-xs-12 col-md-4 order-fields textarea-block" style="order: 2;">
+    {{ form_widget(form.parts,  {'id': 'vehicle_parts_form_name_'~random(100),'attr': {'placeholder':'перечень запчастей, которые вам нужны', 'title':null, 'class':'field textarea','data-validator-limit':250}}) }}
+    <span class="error-span"></span>
+</div>
+<div class="col-xs-12 col-md-4 order-fields" style="order: 2">
+    {{ form_widget(form.carModel,  {'id': 'vehicle_parts_form_name_'~random(100),'attr': {'placeholder':'модель авто', 'title':null, 'class':'field cars-selector'}}) }}
+    <span class="error-span"></span>
+</div>
+<div class="col-xs-12 col-md-4 order-fields" style="order: 2">
+    {{ form_widget(form.carReleaseYear,  {'id': 'vehicle_parts_form_bottom_car_release_'~random(100), 'attr': {'placeholder':'год выпуска авто', 'title':null, 'class':'field','data-validator-limit':4,'data-validator':'numbersOnly'}}) }}
+    <span class="error-span"></span>
+</div>

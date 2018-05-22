@@ -1,0 +1,50 @@
+<section class="contacts" id="contacts">
+    <div class="container">
+        <div class="contacts-title-container">
+            <div class="text">КОНТАКТЫ</div>
+            <img src="{{ asset('/images/bmw2.png') }}" class="bmw">
+        </div>
+        <div class="contacts-owner-container">
+            {% for owner in owners %}
+                <div class='owner-info'>
+                    <img src='{{ asset(owner.img) }}'>
+                    <p class='text'>{{ owner.mobile }}</p>
+                    <p class='text name'>{{ owner.name }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="contacts-info-container">
+            <div class="col-md-8">
+                <div class="map-block">
+                    <div id="map"></div>
+                </div>
+            </div>
+            <div class="col-sm-offset-3 col-sm-6 col-md-offset-0 col-md-4 form-and-address">
+                <div class="address">
+                    <p class="text">
+                        <span>e-mail:</span>
+                        avtoroom@gmail.com
+                    </p>
+                    <p class="text">
+                        <span>адрес:</span>
+                        Киев, ул.Пшеничная, 7б
+                    </p>
+                </div>
+                <div class="contacts-singUp-container">
+                    <p class="text-big">Заказать обратный звонок</p>
+                    <p class="text-small">или диагностику</p>
+                    <form class="contacts-singUp-form" id="back-call-form-bottom"
+                          name="callback_request_form"
+                          action=" {{ path('callbackRequest') }}" method="POST">
+
+                        {% include '@App/forms/callback.request.form.html.twig' with {'form': callbackRequestFormBottom} %}
+                        <div class="col-xs-12 btn-block">
+                            <button type="button" id="callback-bottom-request-submit">ЗАКАЗАТЬ</button>
+                        </div>
+                        {{ form_rest(callbackRequestFormBottom) }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

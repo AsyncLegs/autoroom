@@ -1,0 +1,111 @@
+{% include '@App/header.html.twig' %}
+<body>
+{% include '@App/navigation.html.twig' %}
+
+{% block content %}
+
+{% endblock %}
+
+{% include '@App/contacts.html.twig' %}
+
+{%  include '@App/partials/popup.html.twig' %}
+
+{% block javascripts %}
+    <script src="{{ asset('/js/application.js') }}"></script>
+    <script>
+        function initMap() {
+            let uluru = {lat: 50.426217, lng: 30.403436};
+            let map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 18,
+                center: uluru
+            });
+            let marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+    <script>
+        let elems = document.querySelectorAll('.navigation .nav');
+        for (let i = 0; i < elems.length; i++) {
+            let elem = elems[i];
+            elem.addEventListener("click", function (e) {
+                let target = e.target;
+                let all = document.querySelectorAll('.navigation .nav');
+                for (let j = 0; j < all.length; j++) {
+                    all[j].classList.remove("active");
+                }
+                let dataTarget = target.getAttribute('data-target');
+                target.classList.add("active");
+
+                let navBlock = document.querySelector('.navigation-block');
+                navBlock.className = 'navigation-block open ' + dataTarget;
+
+                let navContent = document.querySelectorAll('.navigation-content');
+                for (let z = 0; z < navContent.length; z++) {
+                    navContent[z].classList.remove("active");
+                }
+                document.querySelector('.navigation-content.' + dataTarget).classList.add("active");
+
+            });
+        }
+
+
+        let closeBtn = document.querySelector('.navigation-block .closeBtn');
+        closeBtn.addEventListener("click", function (e) {
+            document.querySelector('.navigation-block').className = 'navigation-block';
+            document.querySelector('.nav.active').classList.remove("active");
+            document.querySelector('.navigation-content.active').classList.remove("active");
+        });
+
+        let closeBtn_mob = document.querySelector('.closeBtn_mob');
+        closeBtn_mob.addEventListener("click", function (e) {
+            document.querySelector('.mob-navigation').className = 'mob-navigation';
+            document.querySelector('.mob_menu').classList.remove('hide');
+            document.querySelector('.navigation-content-mob.open').classList.remove('open');
+        });
+
+        let mob_nav_open = document.querySelector('.mob_menu');
+        mob_nav_open.addEventListener("click", function (e) {
+            e.target.classList.add('hide');
+            document.querySelector('.mob-navigation').classList.add('open');
+        });
+
+        let mobNavElems = document.querySelectorAll('.mob-target');
+        for (let j = 0; j < mobNavElems.length; j++) {
+            let mobElem = mobNavElems[j];
+            mobElem.addEventListener('click', function (e) {
+                let target = e.target;
+                let dataTarget = target.getAttribute('data-target');
+                let allContent = document.querySelectorAll('.navigation-content-mob');
+                for (let z = 0; z < allContent.length; z++) {
+                    allContent[z].classList.remove('open');
+                }
+                document.querySelector('.navigation-content-mob.' + dataTarget).classList.add('open');
+            });
+        }
+
+        window.onload = function () {
+            checkTopLinePosition();
+        };
+
+        window.onscroll = function () {
+            checkTopLinePosition();
+        };
+
+        function checkTopLinePosition() {
+            let scrolled = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrolled > 20) {
+                document.querySelector('.top-line').classList.add('move');
+            } else {
+                document.querySelector('.top-line').classList.remove('move');
+
+            }
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvlqVEt8Bluwd0gP2Eq-qAIaRDTxbY4X8&callback=initMap">
+    </script>
+{% endblock %}
+</body>
+</html>

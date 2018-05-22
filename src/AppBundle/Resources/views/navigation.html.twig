@@ -1,0 +1,213 @@
+<div class="top-line">
+    <a href="/" class="small-logo">
+        <img src="{{ asset('/images/small_logo.png') }}">
+    </a>
+    <ul class="top-line-nav">
+        <li>
+            <a href="#services">Услуги</a>
+        </li>
+        <li>
+            <a href="#diagnostics">Дигностика</a>
+        </li>
+        <li>
+            <a href="#avtoshop">Автомагазин</a>
+        </li>
+        <li>
+            <a href="#contacts">Контакты</a>
+        </li>
+    </ul>
+</div>
+<section class="menu">
+    <div class="navigation-block">
+        <span class="closeBtn"></span>
+        <div class="navigation">
+            <ul>
+                <li class="nav feedback" data-target="feedback"></li>
+                <li class="nav diagnostics" data-target="diagnostics"></li>
+                <li class="nav spares" data-target="spares"></li>
+                <!--                <li class="nav enter" data-target="enter"></li>-->
+                <!--                <li class="nav registration" data-target="registration"></li>-->
+            </ul>
+        </div>
+        <div class="navigation-content feedback">
+            <p class="title"><span class="red">Заказать</span> обратный звонок </p>
+            <form class="navigation-form back-call-form" id="back-call-form-right" name="back-call-form-right"
+                  action=" {{ path('callbackRequest') }}" method="POST">
+
+                {% include '@App/forms/callback.request.form.html.twig' with {'form': callbackRequestForm} %}
+                <div class="col-xs-12 btn-block">
+                    <button type="button" id="callback-request-submit">ЗАКАЗАТЬ</button>
+                </div>
+                {{ form_rest(callbackRequestForm) }}
+            </form>
+        </div>
+        <div class="navigation-content diagnostics">
+            <p class="title">записаться <br/>на обслуживание </p>
+            <p class="title-small">или <!--<span class="red">бесплатную</span><br/>--> диагностику </p>
+
+            <form class="navigation-form diagnostics-form" id="maintenance-form-right"
+                  name="maintenance_request_form"
+                  action=" {{ path('maintenanceRequest') }}" method="POST">
+
+                {% include '@App/forms/maintenance.request.form.html.twig' with {'form': maintenanceRequestForm} %}
+                <div class="col-xs-12 btn-block">
+                    <button type="button" id="maintenance-request-submit">ЗАКАЗАТЬ</button>
+                </div>
+                {{ form_rest(maintenanceRequestForm) }}
+            </form>
+        </div>
+        <div class="navigation-content spares">
+            <p class="title"><span class="red">Заказать</span> подбор запчастей </p>
+            <form class="navigation-form spares-form" id="vehicle-parts-form-right"
+                  name="vehicle_parts_request_form"
+                  action=" {{ path('vehiclesRequest') }}" method="POST">
+                {% include '@App/forms/vehicle.parts.request.form.html.twig' with {'form': vehiclePartsRequestForm} %}
+
+                <div class="col-xs-12 col-sm-6 btn-block">
+                    <button type="button" id="vehicle-parts-form-right-button">ЗАКАЗАТЬ</button>
+                </div>
+                {{ form_rest(vehiclePartsRequestForm) }}
+
+            </form>
+        </div>
+        <div class="navigation-content enter">
+            <p class="title red">ВХОД</p>
+            <form class="navigation-form enter-form">
+                <div class="col-xs-12">
+                    <input class="field" type="tel" id="nav-enter-tel" value="" placeholder="+380 (__) ___-__-__">
+                </div>
+                <div class="col-xs-12">
+                    <input class="field" type="text" value="" placeholder="пароль">
+                </div>
+                <div class="col-xs-12 btn-block">
+                    <button type="button">ВОЙТИ</button>
+                </div>
+            </form>
+        </div>
+        <div class="navigation-content registration">
+            <p class="title red">РЕГИСТРАЦИЯ</p>
+            <form class="navigation-form registration-form">
+                <div class="col-xs-12">
+                    <input class="field" type="text" value="" placeholder="имя">
+                </div>
+                <div class="col-xs-12">
+                    <input class="field" type="text" value="" placeholder="фамилия">
+                </div>
+                <div class="col-xs-12">
+                    <input class="field" type="tel" id="nav-registration-tel" value=""
+                           placeholder="+380 (__) ___-__-__">
+                </div>
+                <div class="col-xs-12">
+                    <input class="field" type="text" value="" placeholder="ел.почта">
+                </div>
+                <div class="col-xs-12">
+                    <input class="field" type="text" value="" placeholder="пароль">
+                </div>
+                <div class="col-xs-12 btn-block">
+                    <button type="button">СОХРАНИТЬ</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="navigation-mobile">
+        <a href="#" class="mob_menu"></a>
+        <div class="mob-navigation">
+            <span class="closeBtn_mob"></span>
+            <ul>
+                <li class="nav-mob">
+                    <a href="#services">Услуги</a>
+                </li>
+                <li class="nav-mob">
+                    <a href="#diagnostics">Обслуживание</a>
+                </li>
+                <li class="nav-mob">
+                    <a href="#whywe">Почему мы</a>
+                </li>
+                <li class="nav-mob">
+                    <a href="#avtoshop">Автомагазин</a>
+                </li>
+                <li class="nav-mob">
+                    <a href="#contacts">Контакты</a>
+                </li>
+                <!--                <li class="nav-mob">-->
+                <!--                    <a href="#" class="mob-target" data-target="enter">Вход</a>-->
+                <!--                </li>-->
+                <!--                <li class="nav-mob">-->
+                <!--                    <a href="#" class="mob-target" data-target="registration    ">Регистрация</a>-->
+                <!--                </li>-->
+
+            </ul>
+        </div>
+
+        <div class="navigation-content-mob enter">
+            <p class="title red">ВХОД</p>
+            <form class="navigation-form enter-form">
+                <div class="col-xs-12">
+                    <input class="field" type="tel" id="nav-mob-enter-tel" value="" placeholder="+380 (__) ___-__-__">
+                </div>
+                <div class="col-xs-12">
+                    <input class="field" type="text" value="" placeholder="пароль">
+                </div>
+                <div class="col-xs-12 btn-block">
+                    <button type="button">ВОЙТИ</button>
+                </div>
+            </form>
+        </div>
+        <div class="navigation-content-mob registration">
+            <p class="title red">РЕГИСТРАЦИЯ</p>
+            <form class="navigation-form registration-form">
+                <div class="col-xs-12">
+                    <input class="field" type="text" value="" placeholder="имя">
+                </div>
+                <div class="col-xs-12">
+                    <input class="field" type="text" value="" placeholder="фамилия">
+                </div>
+                <div class="col-xs-12">
+                    <input class="field" type="tel" id="nav-mob-registration-tel" value=""
+                           placeholder="+380 (__) ___-__-__">
+                </div>
+                <div class="col-xs-12">
+                    <input class="field" type="text" value="" placeholder="ел.почта">
+                </div>
+                <div class="col-xs-12">
+                    <input class="field" type="text" value="" placeholder="пароль">
+                </div>
+                <div class="col-xs-12 btn-block">
+                    <button type="button">СОХРАНИТЬ</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+<section class="top" id="top">
+    <div class="container top-container">
+        <a href="/">
+            <img src="{{ asset('/images/logo.png') }}" class="top-logo">
+        </a>
+
+        <div class="row">
+            <div class="col-xs-6 col-lg-6 top-info-block left">
+                <div class="title">СТО</div>
+                <div class="description">Ремонт любой сложности быстро, качественно, с гарантией</div>
+            </div>
+            <div class="col-xs-6 col-lg-offset-1 col-lg-4 top-info-block right">
+                <div class="title">АВТО МАГАЗИН</div>
+                <div class="description">Запчасти в наличии и под заказ</div>
+            </div>
+        </div>
+        <div class="row details-all">
+            <div class="col-lg-5 col-xs-6">
+                <img src="{{ asset('/images/left_details.png') }}" class="details1">
+
+            </div>
+            <div class="col-lg-offset-2 col-lg-5 col-xs-6">
+                <img src="{{ asset('/images/right_details.png') }}" class="details1">
+
+            </div>
+        </div>
+    </div>
+</section>

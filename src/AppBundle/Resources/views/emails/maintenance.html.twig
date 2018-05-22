@@ -1,0 +1,4 @@
+Имя: {{ notification.customerName }} <br>
+Телефон: {{ notification.customerPhone|phone_number_format('NATIONAL') }} <br>
+Желаемая дата: {{ notification.visitDate|date('Y-m-d') }} <br>
+Дата время заполнения заявки: {{ notification.createdAt|date('Y-m-d H:i:s') }} <br>

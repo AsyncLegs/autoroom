@@ -1,0 +1,55 @@
+magephp:
+    log_dir: ./deploy/logs
+    environments:
+        production:
+            user: avtoroom
+            branch: master
+            from: ./
+            host_path: /home/avtoroom/www/production
+            releases: 3
+            exclude:
+                - ./var/cache/*
+                - ./var/log/*
+                - ./web/app_dev.php
+            hosts:
+                - avtoroom.com.ua
+            pre-deploy:
+                - git/update
+                - composer/install
+                - composer/dump-autoload
+            on-deploy:
+                - symfony/cache-warmup: { env: 'dev' }
+                - symfony/assets-install: { env: 'dev' }
+            on-release:
+            post-release:
+            post-deploy:
+
+        staging:
+            user: avtoroom
+            branch: develop
+            from: ./
+            host_path: /home/avtoroom/www/staging
+            releases: 3
+            exclude:
+                - ./var/cache/*
+                - ./var/log/*
+                - ./web/app_dev.php
+            hosts:
+                - staging.avtoroom.com.ua
+            pre-deploy:
+                - git/update
+                - composer/install
+                - composer/dump-autoload
+
+
+            on-deploy:
+                - symfony/cache-warmup: { env: 'prod' }
+                - exec: { cmd: 'npm i', desc: 'Install NPM Packages',timeout: 10000 }
+                - exec: { cmd: 'npm rebuild node-sass', desc: 'Rebuild node-sass',timeout: 10000 }
+                - exec: { cmd: 'gulp --production', desc: 'Assets building' }
+                - exec: { cmd: 'php bin/console doctrine:schema:update --force --env=prod', desc: 'Schema update' }
+                - exec: { cmd: 'php bin/console doctrine:fixtures:load --env=prod', desc: 'Fixtures loading' }
+            on-release:
+            post-release:
+            post-deploy:
+

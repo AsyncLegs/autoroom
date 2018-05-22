@@ -1,0 +1,14 @@
+<div class="col-xs-12 input-block">
+    {{ form_widget(form.customerName,  {'id': 'maintenance_form_name_'~random(100),'attr': {'placeholder':'имя', 'title':null, 'class':'field','data-validator-limit':15}}) }}
+    <span class="error-span"></span>
+</div>
+
+<div class="col-xs-12 input-block">
+    {{ form_widget(form.customerPhone,  {'id': 'maintenance_form_phone_'~random(100), 'attr': {'placeholder':'+380 (__) ___-__-__', 'title':null, 'class':'field'}}) }}
+    <span class="error-span"></span>
+</div>
+
+<div class="col-xs-12 input-block">
+    {{ form_widget(form.visitDate,  {'id': 'maintenance_form_visit_'~random(100), 'attr': {'placeholder':'удобная дата', 'title':null, 'class':'field datepicker'}}) }}
+    <span class="error-span"></span>
+</div>

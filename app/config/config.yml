@@ -1,0 +1,81 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+
+parameters:
+    locale: ru
+    notifications:
+        from: '%notifications_from%'
+        to: '%notifications_to%'
+        AppBundle\Entity\Requests\CallbackRequest: {template: "callback.html.twig", subject: "Заявка на обратный звонок"}
+        AppBundle\Entity\Requests\MaintenanceRequest: {template: "maintenance.html.twig", subject: "Запись на обслуживание"}
+        AppBundle\Entity\Requests\VehiclePartsRequest: {template: "vehicles.html.twig",  subject: "Заявка на подбор автозапчастей"}
+
+framework:
+    #esi: ~
+    translator: { fallbacks: ['%locale%'] }
+    secret: '%secret%'
+    router:
+        resource: '%kernel.project_dir%/app/config/routing.yml'
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    #serializer: { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    session:
+        # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id: session.handler.native_file
+        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+    fragments: ~
+    http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+# Twig Configuration
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver: pdo_mysql
+        host: '%database_host%'
+        port: '%database_port%'
+        dbname: '%database_name%'
+        user: '%database_user%'
+        password: '%database_password%'
+        charset: UTF8
+        server_version: '5.5'
+        types:
+            phone_number: Misd\PhoneNumberBundle\Doctrine\DBAL\Types\PhoneNumberType
+
+
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+cspoo_swiftmailer_mailgun:
+    key: "%mailgun_key%"
+    domain: "%mailgun_domain%"
+
+
+white_october_swift_mailer_db:
+    entity_class: AppBundle\Entity\Email
+    keep_sent_messages: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: 'mailgun'
+    spool:
+        type: db
+    logging:  true
+sentry:
+    dsn: '%sentry_dsn%'

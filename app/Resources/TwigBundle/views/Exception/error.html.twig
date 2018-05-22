@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/application.css') }}">
+    <script>
+        if (screen.width <= 480) {
+            document.write('<meta id="myviewport" name="viewport" content="width=480, user-scalable=0">');
+        }
+        else {
+            document.write('<meta id="myviewport" name="viewport" content="width=device-width, user-scalable=0">');
+        }
+    </script>
+</head>
+<body>
+<div class="page404">
+    <div class="box404">
+        <img src="{{ asset('/images/404.png') }}">
+        <a href="/" class="toMain">НА ГЛАВНУЮ</a>
+    </div>
+</div>
+</body>
+</html>
